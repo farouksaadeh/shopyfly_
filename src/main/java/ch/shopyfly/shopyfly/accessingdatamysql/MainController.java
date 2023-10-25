@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Optional;
+import org.springframework.core.io.ClassPathResource;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -48,22 +51,14 @@ public class MainController {
     @GetMapping(path="/register")
     @ResponseBody
     public String showRegistrationForm() {
-        return "<!DOCTYPE html>" +
-                "<html>" +
-                "<head><title>Registrierung</title></head>" +
-                "<body>" +
-                "<form action='/demo/register' method='post'>" +
-                "E-Mail: <input type='text' name='name'><br><br>" +
-                "Passwort: <input type='text' name='email'><br><br>" +
-                "<input type='submit' value='Registrieren'>" +
-                "</form>" +
-                "<br>" +
-                "Haben Sie bereits ein Konto? <a href='/demo/login'>Zur Anmeldung</a>" + // Link zur Login-Seite
-                "</body>" +
-                "</html>";
-
+        try {
+            Path path = new ClassPathResource("static/registrationForm.html").getFile().toPath();
+            return Files.readString(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Fehler beim Laden der HTML-Datei";
+        }
     }
-
     @GetMapping(path="/findByName")
     public @ResponseBody String findByName(@RequestParam String name) {
         Optional<User> optionalUser = userRepository.findByName(name);
@@ -77,21 +72,18 @@ public class MainController {
     @GetMapping(path="/login")
     @ResponseBody
     public String showLoginForm() {
-        return "<!DOCTYPE html>" +
-                "<html>" +
-                "<head><title>Login</title></head>" +
-                "<body>" +
-                "<h2>Login-Formular</h2>" +
-                "<form action='/demo/login' method='post'>" +
-                "E-Mail: <input type='text' name='name' required><br><br>" +
-                "Passwort: <input type='password' name='password' required><br><br>" +
-                "<input type='submit' value='Anmelden'>" +
-                "</form>" +
-                "<br>" +
-                "Sie besitzen noch kein Konto? Erstellen Sie eins <a href='/demo/register'>Zur Registration</a>" + // Link zur Login-Seite
-                "</body>" +
-                "</html>";
+         try {
+            Path path = new ClassPathResource("static/loginForm.html").getFile().toPath();
+            return Files.readString(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Fehler beim Laden der HTML-Datei";
+        }
     }
+
+
+
+
 
     @PostMapping(path="/login")
     public @ResponseBody String loginUser (@RequestParam String name, @RequestParam String password) {

@@ -5,6 +5,7 @@ import ch.shopyfly.shopyfly.accessingdatamysql.User;
 import java.util.Optional;
 
 
+
 public interface UserRepository extends CrudRepository<User, Integer> {
     // ..
     Optional<User> findByName(String name);

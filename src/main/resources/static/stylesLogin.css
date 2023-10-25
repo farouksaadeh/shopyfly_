@@ -1,0 +1,53 @@
+/* Styling for Registration page */
+
+body {
+    font-family: 'Arial', sans-serif; /* Nutzt die Schriftart Arial, falls verfügbar, ansonsten eine generische sans-serif Schriftart */
+    background-color: #f4f4f4; /* Hintergrundfarbe für den gesamten Körper/Body */
+    height: 100vh; /* Stellt sicher, dass der Body den gesamten sichtbaren Bereich des Browsers einnimmt */
+    margin: 0; /* Entfernt den Standardrand des Body */
+    display: flex; /* Flexbox-Layout für den Body, um Inhalte zu zentrieren */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+}
+
+h2 {
+    text-align: center; /* Zentriert den Text des h2-Elements */
+    margin-bottom: 20px; /* Fügt unten einen Rand von 20 Pixel hinzu */
+}
+
+form {
+    background-color: #ffffff; /* Weißer Hintergrund für das Formular */
+    padding: 20px; /* Polsterung um alle Seiten des Formulars */
+    border-radius: 8px; /* Abgerundete Ecken für das Formular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ein leichter Schatten um das Formular für Tiefe */
+}
+
+input[type="text"] {
+    width: 100%; /* Die Eingabefelder nehmen die volle Breite des Formulars ein */
+    padding: 10px; /* Polsterung innerhalb der Eingabefelder */
+    margin-bottom: 10px; /* Ein Rand von 10 Pixel zwischen den Eingabefeldern */
+    border-radius: 4px; /* Abgerundete Ecken für die Eingabefelder */
+    border: 1px solid #ccc; /* Ein 1 Pixel grauer Rand um die Eingabefelder */
+}
+
+input[type="submit"] {
+    background-color: #ffd200; /* Dunkelgraue Hintergrundfarbe für die Schaltfläche "Submit" */
+    color: #ffffff; /* Weißer Text für die Schaltfläche "Submit" */
+    padding: 10px 15px; /* Polsterung innerhalb der Schaltfläche "Submit" */
+    border: none; /* Kein Rand für die Schaltfläche "Submit" */
+    border-radius: 4px; /* Abgerundete Ecken für die Schaltfläche "Submit" */
+    cursor: pointer; /* Cursor ändert sich beim Überfahren der Schaltfläche "Submit" */
+}
+
+input[type="submit"]:hover {
+    background-color: #ffd200; /* Ein etwas helleres Grau für die Schaltfläche "Submit", wenn Sie mit der Maus darüber fahren */
+}
+
+a {
+    text-decoration: none; /* Entfernt die Unterstreichung von Links */
+    color: #ffd200; /* Blaue Farbe für Links */
+}
+
+a:hover {
+    text-decoration: underline; /* Fügt eine Unterstreichung hinzu, wenn Sie mit der Maus über einen Link fahren */
+}
