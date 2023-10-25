@@ -24,6 +24,8 @@ public class MainController {
         n.setEmail(email);
         userRepository.save(n);
         return "Saved";
+        // Irgendwann muss der "String name" und "String email" zu: " String email" und "String password" gewechselt werden.
+        //Jedoch muss der Controller bei get.. auch geändert werden! Alle Komponenten beachten!!
     }
 
     @GetMapping(path="/all")
@@ -51,12 +53,15 @@ public class MainController {
                 "<head><title>Registrierung</title></head>" +
                 "<body>" +
                 "<form action='/demo/register' method='post'>" +
-                "Name: <input type='text' name='name'><br>" +
-                "E-Mail: <input type='text' name='email'><br>" +
+                "E-Mail: <input type='text' name='name'><br><br>" +
+                "Passwort: <input type='text' name='email'><br><br>" +
                 "<input type='submit' value='Registrieren'>" +
                 "</form>" +
+                "<br>" +
+                "Haben Sie bereits ein Konto? <a href='/demo/login'>Zur Anmeldung</a>" + // Link zur Login-Seite
                 "</body>" +
                 "</html>";
+
     }
 
     @GetMapping(path="/findByName")
@@ -78,10 +83,12 @@ public class MainController {
                 "<body>" +
                 "<h2>Login-Formular</h2>" +
                 "<form action='/demo/login' method='post'>" +
-                "Benutzername: <input type='text' name='name' required><br><br>" +
+                "E-Mail: <input type='text' name='name' required><br><br>" +
                 "Passwort: <input type='password' name='password' required><br><br>" +
                 "<input type='submit' value='Anmelden'>" +
                 "</form>" +
+                "<br>" +
+                "Sie besitzen noch kein Konto? Erstellen Sie eins <a href='/demo/register'>Zur Registration</a>" + // Link zur Login-Seite
                 "</body>" +
                 "</html>";
     }
