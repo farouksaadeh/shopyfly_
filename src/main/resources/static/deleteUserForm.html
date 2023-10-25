@@ -1,0 +1,22 @@
+<!--Benutzer löschen HTML File-->
+
+
+<!DOCTYPE html>
+<html>
+<head><title>Achtung</title></head>
+<body><h2>Benutzer löschen</h2>
+<form action="/demo/delete" method="post">
+    E-Mail des zu löschenden Benutzers: <input type="text" name="emailToDelete"><br><br>
+    <input type="submit" value="Benutzer löschen">
+    <form action="/demo/deleteAll" method="post">
+        <input type="submit" value="Alle Benutzer löschen" onclick="return confirmDelete();">
+    </form>
+    <script>
+        function confirmDelete() {
+            return confirm("Möchten Sie wirklich alle Benutzer löschen?");
+        }
+    </script>
+
+</form>
+</body>
+</html>

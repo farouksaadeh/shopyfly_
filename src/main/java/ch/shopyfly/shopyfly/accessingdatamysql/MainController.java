@@ -81,10 +81,6 @@ public class MainController {
         }
     }
 
-
-
-
-
     @PostMapping(path="/login")
     public @ResponseBody String loginUser (@RequestParam String name, @RequestParam String password) {
         Optional<User> optionalUser = userRepository.findByName(name);
@@ -94,4 +90,37 @@ public class MainController {
             return "Benutzername oder Passwort ist falsch!";
         }
     }
+
+    @PostMapping(path="/delete")
+    public @ResponseBody String deleteUser(@RequestParam String emailToDelete) {
+        Optional<User> optionalUser = userRepository.findByEmail(emailToDelete);
+        if (optionalUser.isPresent()) {
+            userRepository.delete(optionalUser.get());
+            return "Benutzer erfolgreich gelöscht.";
+        } else {
+            return "Benutzer mit dieser E-Mail-Adresse wurde nicht gefunden!";
+
+        }
+    }
+    @GetMapping(path="/delete")
+    @ResponseBody
+    public String showDeleteForm() {
+        try {
+            Path path = new ClassPathResource("static/deleteUserForm.html").getFile().toPath();
+            return Files.readString(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Fehler beim Laden der HTML-Datei";
+        }
+    }
+
+    @PostMapping(path="/deleteAll")
+    public @ResponseBody String deleteAllUsers() {
+        userRepository.deleteAll();
+        return "Alle Benutzer wurden gelöscht";
+    }
+
+
+
+
 }
