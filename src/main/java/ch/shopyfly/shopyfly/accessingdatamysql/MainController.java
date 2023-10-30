@@ -85,7 +85,7 @@ public class MainController {
     public @ResponseBody String loginUser (@RequestParam String name, @RequestParam String password) {
         Optional<User> optionalUser = userRepository.findByName(name);
         if (optionalUser.isPresent()) {
-            return "Erfolgreich angemeldet!";
+            return "Login erfolgreich ausgeführt";
         } else {
             return "Benutzername oder Passwort ist falsch!";
         }
