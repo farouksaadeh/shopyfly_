@@ -1,21 +1,41 @@
-<!--Registration HTML File-->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrierung</title>
-    <link rel="stylesheet" type="text/css" href="/stylesRegistration.css"> <!-- Hier ist die Verknüpfung zur CSS-Datei -->
+    <link rel="stylesheet" href="/stylesRegistration.css">
 </head>
+
 <body>
-<h2>Registrierung</h2>
-<form action='/demo/register' method='post'>
-    E-Mail: <input type='text' name='name'><br><br>
-    Passwort: <input type='text' name='email'><br><br>
-    <input type='submit' value='Registrieren'>
+<form action="/demo/register" method="post">
+    <div class="wrapper">
+        <div class="form">
+            <h1 class="title">Willkommen</h1>
+            <div class="inp">
+                <input type="text" name="fullName" class="input" placeholder="Name Nachname">
+            </div>
+            <div class="inp">
+                <input type="text" name="name" class="input" placeholder="Email">
+            </div>
+            <div class="inp">
+                <input type="text" name="email" class="input" placeholder="Passwort">
+            </div>
+            <input type="submit" value="Registrieren" class="submit">
+            <div class="footer">
+                Hast du schon ein Login? <a href="/demo/login" class="link">Login</a>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="shopyfly">Shopyfly </div>
+            <div class="register">Registrieren </div>
+
+            <div class="para"></div>
+        </div>
+    </div>
 </form>
-<br>
-Haben Sie bereits ein Konto? <a href='/demo/login'>Zur Anmeldung</a>
-<!--Link zur Login-Seite-->
 </body>
+
 </html>

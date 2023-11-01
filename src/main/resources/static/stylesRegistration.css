@@ -1,53 +1,125 @@
-/* Styling for Registration page */
+* {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
 
 body {
-    font-family: 'Arial', sans-serif; /* Nutzt die Schriftart Arial, falls verfügbar, ansonsten eine generische sans-serif Schriftart */
-    background-color: #f4f4f4; /* Hintergrundfarbe für den gesamten Körper/Body */
-    height: 100vh; /* Stellt sicher, dass der Body den gesamten sichtbaren Bereich des Browsers einnimmt */
-    margin: 0; /* Entfernt den Standardrand des Body */
-    display: flex; /* Flexbox-Layout für den Body, um Inhalte zu zentrieren */
-    align-items: center; /* Zentriert den Inhalt vertikal */
-    justify-content: center; /* Zentriert den Inhalt horizontal */
+    width: 100vw;
+    height: 100vh;
+    background: #081b29;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 
-h2 {
-    text-align: center; /* Zentriert den Text des h2-Elements */
-    margin-bottom: 20px; /* Fügt unten einen Rand von 20 Pixel hinzu */
+::-webkit-input-placeholder {
+    color: #eee;
 }
 
-form {
-    background-color: #ffffff; /* Weißer Hintergrund für das Formular */
-    padding: 20px; /* Polsterung um alle Seiten des Formulars */
-    border-radius: 8px; /* Abgerundete Ecken für das Formular */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ein leichter Schatten um das Formular für Tiefe */
+.wrapper {
+    position: relative;
+    width: 1300px;
+    height: 65vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 50px 0 #21aba5;
 }
 
-input[type="text"] {
-    width: 100%; /* Die Eingabefelder nehmen die volle Breite des Formulars ein */
-    padding: 10px; /* Polsterung innerhalb der Eingabefelder */
-    margin-bottom: 10px; /* Ein Rand von 10 Pixel zwischen den Eingabefeldern */
-    border-radius: 4px; /* Abgerundete Ecken für die Eingabefelder */
-    border: 1px solid #ccc; /* Ein 1 Pixel grauer Rand um die Eingabefelder */
+.wrapper .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-input[type="submit"] {
-    background-color: #333; /* Dunkelgraue Hintergrundfarbe für die Schaltfläche "Submit" */
-    color: #ffffff; /* Weißer Text für die Schaltfläche "Submit" */
-    padding: 10px 15px; /* Polsterung innerhalb der Schaltfläche "Submit" */
-    border: none; /* Kein Rand für die Schaltfläche "Submit" */
-    border-radius: 4px; /* Abgerundete Ecken für die Schaltfläche "Submit" */
-    cursor: pointer; /* Cursor ändert sich beim Überfahren der Schaltfläche "Submit" */
+.wrapper .title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
 }
 
-input[type="submit"]:hover {
-    background-color: #555; /* Ein etwas helleres Grau für die Schaltfläche "Submit", wenn Sie mit der Maus darüber fahren */
+.wrapper .inp {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
 }
 
-a {
-    text-decoration: none; /* Entfernt die Unterstreichung von Links */
-    color: #007BFF; /* Blaue Farbe für Links */
+.wrapper .input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    border: none;
+    outline: none;
+    background: none;
+    width: 260px;
+    margin-top: 40px;
+    padding-right: 10px;
+    font-size: 17px;
+    color: #fdfdfd;
 }
 
-a:hover {
-    text-decoration: underline; /* Fügt eine Unterstreichung hinzu, wenn Sie mit der Maus über einen Link fahren */
+.wrapper .submit {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    width: 288px;
+    margin-top: 25px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #163a5f, #21aba5);
+}
+
+.wrapper .footer {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+
+.wrapper .link {
+    color: #21aba5;
+    text-decoration: none;
+}
+
+.wrapper .banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 700px;
+    height: 100%;
+    background: linear-gradient(to right, #163a5f, #21aba5);
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 60% 100%);
+    padding-right: 70px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.wrapper .shopyfly {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 75px;
+    margin-bottom: 20px;
+    line-height: 50px;
+    padding-right: 10px;
+}
+.wrapper .register {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    font-size: 30px;
+    margin-top: 20px;
+    line-height: 50px;
+    padding-right: 10px;
+}
+
+.wrapper .para {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
 }

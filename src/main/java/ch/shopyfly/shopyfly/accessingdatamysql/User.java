@@ -1,9 +1,10 @@
 package ch.shopyfly.shopyfly.accessingdatamysql;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.Column;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -14,6 +15,9 @@ public class User {
     private String name;
 
     private String email;
+
+    @Column
+    private String fullname; // Hier wurde das neue Attribut hinzugefügt
 
     public Integer getId() {
         return id;
@@ -37,5 +41,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    // Getter und Setter für das neue Attribut fullname
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 }
