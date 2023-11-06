@@ -18,17 +18,6 @@ public class MainController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email, @RequestParam String fullName) {
-        User n = new User();
-        n.setName(name);
-        n.setEmail(email);
-        n.setFullname(fullName); // Setzen Sie den vollständigen Namen
-        userRepository.save(n);
-        return "Saved";
-    }
-
-
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
@@ -37,8 +26,8 @@ public class MainController {
     @PostMapping(path="/register")
     public String registerUser (Model model, @ModelAttribute("user") User user) {
 
-        if(userRepository.findByName(user.getName()).isPresent()){
-            model.addAttribute("nameError", "Name already exist");
+        if(userRepository.findByEmail(user.getEmail()).isPresent()){
+            model.addAttribute("emailError", "Email already exist");
             return "registrationForm";
         }
         userRepository.save(user);
@@ -50,18 +39,6 @@ public class MainController {
         User user = new User();
         model.addAttribute("user", user);
         return "registrationForm";
-    }
-
-
-
-    @GetMapping(path="/findByName")
-    public @ResponseBody String findByName(@RequestParam String name) {
-        Optional<User> optionalUser = userRepository.findByName(name);
-        if (optionalUser.isPresent()) {
-            return optionalUser.get().getName() + ", " + optionalUser.get().getEmail();
-        } else {
-            return "User not found!";
-        }
     }
 
     @GetMapping(path="/login")
@@ -77,9 +54,11 @@ public class MainController {
     }
 
     @PostMapping(path="/login")
-    public @ResponseBody String loginUser (@RequestParam String name, @RequestParam String email) {
+    public @ResponseBody String loginUser (@RequestParam String email, @RequestParam String password) {
+        //TODO: add password validation
+
         // Suche nach Benutzer in der Datenbank anhand des bereitgestellten Namens
-        Optional<User> optionalUser = userRepository.findByName(name);
+        Optional<User> optionalUser = userRepository.findByEmail(email);
 
         // Wenn der Benutzer gefunden wurde
         if (optionalUser.isPresent()) {
@@ -91,7 +70,7 @@ public class MainController {
             }
         }
 
-        return "Benutzername oder E-Mail ist falsch!";
+        return "E-Mail ist falsch!";
     }
 
     @PostMapping(path="/delete")

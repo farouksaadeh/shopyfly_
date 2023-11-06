@@ -8,16 +8,18 @@ import jakarta.persistence.Column;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String name;
-
+    @Column(unique = true)
     private String email;
 
-    @Column
-    private String fullname; // Hier wurde das neue Attribut hinzugefügt
+    private String fullName;
+
+    private String password;
+
 
     public Integer getId() {
         return id;
@@ -27,12 +29,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -41,14 +51,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    // Getter und Setter für das neue Attribut fullname
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
     }
 }

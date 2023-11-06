@@ -23,6 +23,7 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.26'
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 
 

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrierung</title>
     <link rel="stylesheet" href="/stylesRegistration.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -18,12 +19,12 @@
                 <input type="text" name="fullName" class="input" placeholder="Name Nachname">
             </div>
             <div class="inp">
-                <input type="text" name="name" class="input" placeholder="Email">
+                <input type="email" name="email" required class="input" placeholder="Email">
             </div>
             <div class="inp">
-                <input type="text" name="email" class="input" placeholder="Passwort">
+                <input type="text" name="name" class="input" placeholder="Passwort">
             </div>
-            <input type="submit" value="Registrieren" class="submit">
+            <input type="button" value="Registrieren" class="submit">
             <div class="footer">
                 Hast du schon ein Login? <a href="/demo/login" class="link">Login</a>
             </div>
@@ -36,6 +37,12 @@
         </div>
     </div>
 </form>
+
+<script>
+    $("form").submit(function (event){
+        event.preventDefault();
+    })
+</script>
 </body>
 
 </html>

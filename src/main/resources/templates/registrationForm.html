@@ -15,16 +15,16 @@
         <div class="form">
             <h1 class="title">Willkommen</h1>
             <div class="inp">
-                <input type="text" name="fullname" class="input" placeholder="Nachname" th:field="*{fullname}">
+                <input type="text" name="fullName" class="input" placeholder="Name" th:field="*{fullName}">
             </div>
             <div class="inp">
-                <input type="text" name="name" class="input" placeholder="Name" th:field="*{name}">
+                <input type="email" name="email" class="input" placeholder="E-Mail" th:field="*{email}">
             </div>
             <div>
-                <p class="error" th:text="${nameError}"></p>
+                <p class="error" th:text="${emailError}"></p>
             </div>
             <div class="inp">
-                <input type="text" name="email" class="input" placeholder="Email" th:field="*{email}" >
+                <input type="password" name="password" class="input" placeholder="Password" th:field="*{password}" >
             </div>
             <input type="submit" value="Registrieren" class="submit">
             <div class="footer">

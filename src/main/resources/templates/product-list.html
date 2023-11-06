@@ -72,6 +72,13 @@ Although you can use them, for a more unique website, replace these images with 
     </div><!-- /.container -->
 </nav>
 
+<div>
+    <p>NEW PART: The product list:</p>
+    <ul th:each="product: ${products}">
+        <li th:text="${product.name}"></li>
+    </ul>
+</div>
+
 <!-- Feature -->
 <div class="jumbotron feature">
     <div class="container">

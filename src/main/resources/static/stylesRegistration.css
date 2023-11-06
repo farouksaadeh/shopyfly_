@@ -124,8 +124,9 @@ body {
     letter-spacing: 1px;
 }
 .wrapper .error {
-    color: red;
+    color: #fd0000;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     margin-top: 9px;
     width: 260px;
 }
