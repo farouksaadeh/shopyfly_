@@ -19,12 +19,14 @@ public class WebShopController {
     @Autowired
     private ProductService productService;
 
+/*
     @GetMapping("/products")
     public String showProducts(Model model) {
         List<Product> products = productService.getAllProducts();
         model.addAttribute("products", products);
         return "product-list";
     }
+*/
 
     @GetMapping("/home")
     @ResponseBody
