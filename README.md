@@ -1,0 +1,1 @@
+create table products (id int auto_increment primary key, name varchar(255), size decimal (10, 2) not null, brand varchar(255), stock int);
