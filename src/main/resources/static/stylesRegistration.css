@@ -123,3 +123,9 @@ body {
     line-height: 24px;
     letter-spacing: 1px;
 }
+.wrapper .error {
+    color: red;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 9px;
+    width: 260px;
+}

@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.core.io.ClassPathResource;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.springframework.ui.Model;
 
 //WICHTIG! "name" in SQL Datenbank ist hier email!
 //WICHTIG! "email" in SQL Datenbank ist hier password!
@@ -34,29 +35,24 @@ public class MainController {
     }
 
     @PostMapping(path="/register")
-    public @ResponseBody String registerUser (@RequestParam String name, @RequestParam String email, @RequestParam String fullName) {
-        if(userRepository.findByName(name).isPresent()){
-            return "Email bereits vorhanden.";
+    public String registerUser (Model model, @ModelAttribute("user") User user) {
+
+        if(userRepository.findByName(user.getName()).isPresent()){
+            model.addAttribute("nameError", "Name already exist");
+            return "registrationForm";
         }
-        User newUser = new User();
-        newUser.setName(name);
-        newUser.setEmail(email);
-        newUser.setFullname(fullName);
-        userRepository.save(newUser);
-        return "Benutzer erfolgreich registriert.";
+        userRepository.save(user);
+        return "product-list";
     }
 
     @GetMapping(path="/register")
-    @ResponseBody
-    public String showRegistrationForm() {
-        try {
-            Path path = new ClassPathResource("static/registrationForm.html").getFile().toPath();
-            return Files.readString(path);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Fehler beim Laden der HTML-Datei";
-        }
+    public String showRegistrationForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "registrationForm";
     }
+
+
 
     @GetMapping(path="/findByName")
     public @ResponseBody String findByName(@RequestParam String name) {
