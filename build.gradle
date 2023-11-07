@@ -34,3 +34,45 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+
+tasks.register('copyChangedFiles', Copy) {
+	// Define the source and destination directories
+	def sourceDir = file('src/main/resources/static')
+	def destDir = file('build/resources/main/static')
+
+	// Specify the input and output directories for incremental build
+	inputs.dir sourceDir
+	outputs.dir destDir
+
+	// Configure the task to copy files from source to destination
+	from sourceDir
+	into destDir
+
+	// If you only want to copy files when they change,
+	// use 'upToDateWhen' to define custom up-to-date checks
+	outputs.upToDateWhen {
+		// Compare the source and destination to see if any files have changed
+		def sourceFiles = sourceDir.listFiles()
+		def destinationFiles = destDir.listFiles()
+
+		if (sourceFiles == null || destinationFiles == null) {
+			// If one of the directories does not exist, consider it not up-to-date
+			return false
+		}
+
+		// Get the latest modification time among the source files
+		def latestSourceModificationTime = sourceFiles.max { it.lastModified() }?.lastModified() ?: 0
+
+		// Get the earliest modification time among the destination files
+		def earliestDestinationModificationTime = destinationFiles.min { it.lastModified() }?.lastModified() ?: Long.MAX_VALUE
+
+		// The task is up-to-date if the latest source modification is older than the earliest destination modification
+		latestSourceModificationTime < earliestDestinationModificationTime
+	}
+
+	// Use 'doLast' to add some custom action after the copy if needed
+	doLast {
+		println "Changed files have been copied to $destDir"
+	}
+}

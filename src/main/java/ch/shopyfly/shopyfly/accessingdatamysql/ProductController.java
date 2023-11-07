@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
 @RequestMapping(path="/")
 public class ProductController {
@@ -18,7 +16,6 @@ public class ProductController {
     @GetMapping(path = "/products")
     public String getAllProducts(Model model) {
         Iterable<Product> products = productRepository.findAll();
-        System.out.println(products);
         model.addAttribute("products",products);
         return "product-list";
     }

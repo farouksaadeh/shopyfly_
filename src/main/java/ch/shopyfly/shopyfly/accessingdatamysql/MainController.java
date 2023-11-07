@@ -9,8 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import org.springframework.ui.Model;
 
-//WICHTIG! "name" in SQL Datenbank ist hier email!
-//WICHTIG! "email" in SQL Datenbank ist hier password!
 @Controller
 @RequestMapping(path="/demo")
 public class MainController {
