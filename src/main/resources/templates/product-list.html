@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="/stylesProductList.css">
-
     <title>Shopyfly</title>
 </head>
-
 <body>
 <div>
     <input type="text" id="search" />
     <ul class="product-list">
-    <li class="product-item" th:each="product: ${products}">
-        <p class="name" th:text="${product.name}"></p>
-        <p class="price" th:text="${product.price}"></p>
-        <p class="size" th:text="${product.size}"></p>
-        <p class="brand" th:text="${product.brand}"></p>
-        <p class="stock" th:text="${product.stock}"></p>
-    </li>
+        <li class="product-item" th:each="product : ${products}">
+            <a th:href="@{/product(id=${product.id})}">
+            <img th:src="@{${product.pictureURL}}" alt="Produktbild" class="pictureURL"/>
+            <p class="brand" th:text="${product.brand}"></p>
+            <p class="name" th:text="${product.name}"></p>
+            <p class="price" th:text="${'CHF ' + product.price}"></p>
+            </a>
+        </li>
     </ul>
+    <script>
+        var search = document.getElementById("search");
+        var products = document.querySelectorAll(".product-item");
+        search.addEventListener("input", (e) => {
+            const searchTerm = e.currentTarget.value.toLowerCase();
+            products.forEach(product => {
+                const isVisible = product.textContent.toLowerCase().includes(searchTerm);
+                product.style.display = isVisible ? 'list-item' : 'none';
+            });
+        });
+    </script>
 </div>
-
-<script>
-    var search = document.getElementById("search");
-    var products = document.querySelectorAll(".product-item");
-    console.log(products)
-    search.addEventListener("input", (e)=> {
-
-        for(const product of products){
-
-            if(!product.innerHTML.includes(e.currentTarget.value)) {
-                product.style.display = "none";
-            } else {
-                product.style.display = "list-item";
-            }
-        }
-    })
-</script>
 </body>
 </html>

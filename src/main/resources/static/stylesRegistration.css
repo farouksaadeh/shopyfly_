@@ -21,6 +21,7 @@ body {
     position: relative;
     width: 1300px;
     height: 65vh;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 3px solid #ffffff;
@@ -51,7 +52,7 @@ body {
     border: none;
     outline: none;
     background: none;
-    width: 260px;
+    width: 300px;
     margin-top: 40px;
     padding-right: 10px;
     font-size: 17px;
@@ -62,15 +63,21 @@ body {
     font-family: 'Poppins', sans-serif;
     border: none;
     outline: none;
-    width: 288px;
+    width: 300px;
     margin-top: 25px;
     padding: 10px 0;
     font-size: 20px;
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
+    background: linear-gradient(45deg, #112e4c , #2979af );
+    transition: background-color 1s, opacity 1s;
+}
+.wrapper .submit:hover {
+    opacity: 0.6;
     background: linear-gradient(45deg, #163a5f, #21aba5);
 }
+
 
 .wrapper .footer {
     font-family: 'Poppins', sans-serif;
@@ -93,6 +100,8 @@ body {
     background: linear-gradient(to right, #163a5f, #21aba5);
     clip-path: polygon(9% 0, 100% 0, 100% 100%, 60% 100%);
     padding-right: 70px;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -121,12 +130,13 @@ body {
     margin-top: 10px;
     font-size: 18px;
     line-height: 24px;
-    letter-spacing: 1px;
 }
+
 .wrapper .error {
-    color: #fd0000;
+    color: #ff4343;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    letter-spacing: 1px;
+    font-weight: 550;
     margin-top: 9px;
     width: 260px;
 }
