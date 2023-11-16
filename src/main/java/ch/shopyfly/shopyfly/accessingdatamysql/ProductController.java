@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.Optional;
 
@@ -34,4 +36,20 @@ public class ProductController {
 
         return "product-details";
     }
+
+    @PostMapping(path = "/add-product")
+    public String addProduct(@ModelAttribute Product product) {
+        productRepository.save(product);
+        return "redirect:/products";
+    }
+
+    @GetMapping("/add-product")
+    public String addProductForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "addProduct";
+    }
+
+
+
+
 }

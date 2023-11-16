@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 @Entity(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     private String pictureURL;

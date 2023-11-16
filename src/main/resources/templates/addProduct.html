@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/static/styleAddProducts.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+<h1>Add a New Product</h1>
+<form th:action="@{/add-product}" th:object="${product}" method="post">
+    <p>Picture URL: <input type="text" th:field="*{pictureURL}" required /></p>
+    <p>Name: <input type="text" th:field="*{name}" required /></p>
+    <p>Price: <input type="number" step="0.01" th:field="*{price}" required /></p>
+    <p>Size:
+        <select th:field="*{size}">
+            <!-- Die Enum-Werte müssen exakt übereinstimmen -->
+            <option value="SIZE_39">39</option>
+            <option value="SIZE_40">40</option>
+            <option value="SIZE_41">41</option>
+            <option value="SIZE_42">42</option>
+            <option value="SIZE_43">43</option>
+            <option value="SIZE_44">44</option>
+            <option value="SIZE_45">45</option>
+            <option value="SIZE_46">46</option>
+        </select>
+    </p>
+    <p>Brand: <input type="text" th:field="*{brand}" required /></p>
+    <p>Stock: <input type="number" th:field="*{stock}" required /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

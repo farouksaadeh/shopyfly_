@@ -13,4 +13,15 @@ public enum ShoeSizeEnum {
     public String getSize() {
         return size;
     }
+
+
+    public static ShoeSizeEnum fromSize(String size) {
+        for (ShoeSizeEnum b : ShoeSizeEnum.values()) {
+            if (b.getSize().equals(size)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + size + "'");
+    }
 }
+
