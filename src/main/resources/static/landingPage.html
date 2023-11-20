@@ -3,6 +3,7 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesLandingPage.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,22 @@
 </head>
 
 <body>
-<div style="text-align: center;">
-    <h1>Willkommen auf unserer Webseite</h1>
-    <button onclick="location.href='/products'">Produkte</button>
-    <button onclick="location.href='/demo/login'">Login</button>
-    <button onclick="location.href='/demo/register'">Register</button>
-    <button onclick="location.href='/demo/about-us'">About Us</button>
+<div class="navigationBar">
+    <a href="/home">
+        <img class="logo" src="/static/images/ShopyflyLogo.webp"></a>
+    <a href="/products">Produkte</a>
+    <a href="/demo/login">Login</a>
+    <a href="/demo/register">Registrieren</a>
+    <a href="/home">Über uns</a>
+    <!--Bei "/home Über uns" (Line 21)  muss nur ein scroller hinzugefügt werden, für die Landing Page -->
+    <a href="/home" class="orderOverview">
+        <img src="/static/SVG/ShoppingCart.svg" class="orderOverview">
+    </a>
+
+
+
+
+
 </div>
 </body>
 

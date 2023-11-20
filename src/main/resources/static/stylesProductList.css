@@ -8,9 +8,12 @@ body {
 
 ul.product-list {
     display: grid;
-    grid-template-columns: repeat(3,800px);
-    padding: 0;
+    grid-template-columns: repeat(3,550px);
+    grid-gap: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
     list-style-type: none;
+    justify-content: center;
 }
 
 .product-item {

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div>
-    <input type="text" id="search" />
+    <input type="text" id="search" placeholder="Suche" />
     <ul class="product-list">
         <li class="product-item" th:each="product : ${products}">
             <a th:href="@{/product(id=${product.id})}">
